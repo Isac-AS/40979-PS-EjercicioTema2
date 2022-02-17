@@ -11,13 +11,17 @@
 <%@page import="control.frontController.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%! Catalog catalog = new Catalog();%>
-<%! Cart cart = new Cart();%>
-<%
-    session.setAttribute("catalog", catalog);
-    session.setAttribute("cart", cart);
-%>
 <html>
+    <%! Catalog catalog = new Catalog();%>
+    <%
+        Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            session.setAttribute("cart", cart);
+        }
+
+        session.setAttribute("catalog", catalog);
+    %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>

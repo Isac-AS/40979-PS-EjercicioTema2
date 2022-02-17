@@ -1,5 +1,6 @@
 package model;
 
+import static com.sun.faces.facelets.util.Path.context;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,8 +20,9 @@ public class Catalog {
         
         try {
             // Ponga aquí la ruta al documento.
-            //Object object = parser.parse(new FileReader("C:\\Users\\Isac\\OneDrive - Universidad de Las Palmas de Gran Canaria\\Tercero\\2-Segundo semestre\\40979 - PS\\Practicas\\NetBeans\\EjercicioTema2\\books_ulr.json"));
-            Object object = parser.parse(new FileReader("books_ulr.json"));
+            Object object = parser.parse(new FileReader("C:\\books_ulr.json"));
+            //Object object = parser.parse(new FileReader("C:\\Users\\Isac\\OneDrive - Universidad de Las Palmas de Gran Canaria\\Tercero\\2-Segundo semestre\\40979 - PS\\Practicas\\NetBeans\\EjercicioTema2\\web\\files\\books_ulr.json"));
+            //Object object = parser.parse(new FileReader(context("files/books_ulr.json")));
             JSONArray array = (JSONArray) object;
             Iterator<JSONObject> iterator = array.iterator();
             JSONObject book;
